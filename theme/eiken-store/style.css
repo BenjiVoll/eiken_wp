@@ -1,0 +1,220 @@
+/*
+Theme Name: Eiken Design Store (WooCommerce)
+Theme URI: https://github.com/BenjiVoll/eiken_wp
+Author: Eiken Design
+Description: Tema oficial Motorsport & Diseño para Eiken Design con soporte nativo para WooCommerce y Webpay Plus.
+Version: 1.0.0
+Text Domain: eiken-store
+*/
+
+:root {
+  --eiken-black: #0a0a0c;
+  --eiken-dark: #111318;
+  --eiken-card: #181b22;
+  --eiken-border: #262a34;
+  --eiken-red: #ff2b00;
+  --eiken-orange: #ff3d00;
+  --eiken-silver: #c4c7ce;
+  --eiken-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Header Motorsport Oscuro */
+.eiken-header {
+  background: rgba(10, 10, 12, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1e293b;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 24px;
+}
+
+.eiken-header-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.eiken-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.eiken-brand img {
+  height: 40px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.eiken-brand-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.eiken-brand-title span {
+  color: var(--eiken-orange);
+}
+
+.eiken-brand-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 3px;
+}
+
+.eiken-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.eiken-nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.eiken-nav a:hover {
+  color: var(--eiken-orange);
+}
+
+.eiken-cart-btn {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+  color: #fff !important;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(255, 61, 0, 0.25);
+}
+
+/* Hero Banner */
+.eiken-hero {
+  background: linear-gradient(135deg, #090d16 0%, #1e293b 50%, #090d16 100%);
+  color: #fff;
+  padding: 48px 24px;
+  text-align: center;
+  border-bottom: 1px solid #1e293b;
+}
+
+.eiken-hero-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: rgba(255, 61, 0, 0.15);
+  border: 1px solid rgba(255, 61, 0, 0.35);
+  color: #fdba74;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.eiken-hero h1 {
+  font-size: 36px;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+
+.eiken-hero h1 span {
+  background: linear-gradient(90deg, #fb923c, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.eiken-hero p {
+  color: #cbd5e1;
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+/* Contenedor principal */
+.eiken-container {
+  max-width: 1240px;
+  margin: 36px auto;
+  padding: 0 24px;
+}
+
+/* WooCommerce Overrides */
+.woocommerce ul.products li.product {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px !important;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.woocommerce ul.products li.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+  border-color: rgba(255, 61, 0, 0.3);
+}
+
+.woocommerce ul.products li.product a img {
+  border-radius: 12px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-size: 16px !important;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.woocommerce ul.products li.product .price {
+  color: #ea580c !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+}
+
+.woocommerce a.button,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce #respond input#submit.alt {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%) !important;
+  color: #ffffff !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  padding: 11px 18px !important;
+  border: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.woocommerce a.button:hover,
+.woocommerce button.button.alt:hover {
+  opacity: 0.92;
+}
+
+.eiken-footer {
+  background: #090d16;
+  color: #94a3b8;
+  text-align: center;
+  padding: 32px 24px;
+  margin-top: 64px;
+  font-size: 13px;
+  border-top: 1px solid #1e293b;
+}

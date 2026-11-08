@@ -1,0 +1,8 @@
+# Runtime local (WordPress + PHP portable + base de datos SQLite)
+.runtime/
+wp-data/
+db-data/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,10 @@
+{
+  "name": "eiken-wp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Entorno de prueba y comparación de Eiken Design en WordPress + WooCommerce + Webpay Plus",
+  "scripts": {
+    "start": "powershell -ExecutionPolicy Bypass -File ./scripts/start-local.ps1",
+    "seed": "powershell -ExecutionPolicy Bypass -File ./scripts/start-local.ps1 -SeedOnly"
+  }
+}

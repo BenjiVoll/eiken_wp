@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  wordpress:
+    image: wordpress:6.7-php8.3-apache
+    container_name: eiken_wp_store
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: db_wp
+      WORDPRESS_DB_USER: wp_user
+      WORDPRESS_DB_PASSWORD: wp_password
+      WORDPRESS_DB_NAME: wp_db
+    volumes:
+      - wp-data:/var/www/html
+      - ./theme/eiken-store:/var/www/html/wp-content/themes/eiken-store
+      - ./scripts/seed-eiken.php:/var/www/html/seed-eiken.php
+    depends_on:
+      - db_wp
+
+  db_wp:
+    image: mysql:8.0
+    container_name: eiken_wp_mysql
+    environment:
+      MYSQL_DATABASE: wp_db
+      MYSQL_USER: wp_user
+      MYSQL_PASSWORD: wp_password
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  wp-data:
+  db-data:
