@@ -72,13 +72,30 @@ New-Item -ItemType Directory -Force -Path $DestTheme | Out-Null
 Copy-Item -Path (Join-Path $RootDir "theme\eiken-store\*") -Destination $DestTheme -Recurse -Force
 
 # 5. Instalar WordPress, WooCommerce, Transbank Webpay REST y cargar datos de Eiken Design
+$ErrorActionPreference = "Continue"
 $env:WP_CLI_PHP = $PhpExe
+$Utf8NoBom = New-Object System.Text.UTF8Encoding $false
+
+# Asegurar wp-config.php sin BOM y con HTTP_HOST para ejecuciones CLI
+$WpConfig = Join-Path $WpDir "wp-config.php"
+Copy-Item (Join-Path $WpDir "wp-config-sample.php") $WpConfig -Force
+$cfgText = Get-Content $WpConfig -Raw
+$cfgText = "<?php`nif (!isset(`$_SERVER['HTTP_HOST'])) { `$_SERVER['HTTP_HOST'] = 'localhost:8080'; }`n" + ($cfgText -replace '^<\?php\s*', '')
+[System.IO.File]::WriteAllText($WpConfig, $cfgText, $Utf8NoBom)
+
+# Asegurar db.php sin BOM
+$PluginsDir = Join-Path $WpDir "wp-content\plugins"
+$dbCopy = Get-Content (Join-Path $PluginsDir "sqlite-database-integration\db.copy") -Raw
+$dbCopy = $dbCopy -replace "\{SQLITE_IMPLEMENTATION_FOLDER_PATH\}", ((Join-Path $PluginsDir "sqlite-database-integration") -replace "\\", "/")
+$dbCopy = $dbCopy -replace "\{SQLITE_PLUGIN\}", "sqlite-database-integration/load.php"
+[System.IO.File]::WriteAllText((Join-Path $WpDir "wp-content\db.php"), $dbCopy, $Utf8NoBom)
+
 function Invoke-Wp {
     param([Parameter(ValueFromRemainingArguments = $true)]$ArgsList)
     & $PhpExe $WpCliPhar --path=$WpDir @ArgsList
 }
 
-$isInstalled = & $PhpExe $WpCliPhar --path=$WpDir core is-installed 2>$null
+& $PhpExe $WpCliPhar --path=$WpDir core is-installed *> $null
 if ($LASTEXITCODE -ne 0) {
     Write-Host "=> Instalando WordPress + WooCommerce + Transbank Webpay..." -ForegroundColor Cyan
     Invoke-Wp core install --url="http://localhost:8080" --title="Eiken Design Store" --admin_user="admin" --admin_password="eiken2026" --admin_email="admin@eikendesign.cl" --skip-email
