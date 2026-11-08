@@ -18,10 +18,15 @@ Repositorio independiente para evaluar y comparar **WordPress + WooCommerce + Tr
 Desde la carpeta `C:\Users\BenjiVoll\eiken_wp`:
 
 ```powershell
-npm start
+powershell -ExecutionPolicy Bypass -File .\scripts\start-local.ps1
 ```
+*(o `npm.cmd start`)*
 
-* **Tienda Pública:** `http://localhost:8080`
+### Accesos Rápidos Locales
+* **Landing Principal (Hero, Servicios, Portafolio, Nosotros y Contacto):** `http://localhost:8080/`
+* **Tienda Oficial WooCommerce (Filtros, Tallas, Buscador y Carrito Lateral):** `http://localhost:8080/?post_type=product`
+* **Simulador de Cotizaciones (Vista Propuesta Cliente):** `http://localhost:8080/?eiken_quote_view=latest`
+* **Gestión de Cotizaciones en `WP-Admin`:** `http://localhost:8080/wp-admin/edit.php?post_type=eiken_quote`
 * **Panel de Administración (`WP-Admin`):** `http://localhost:8080/wp-admin`
   * **Usuario:** `admin`
   * **Contraseña:** `eiken2026`
