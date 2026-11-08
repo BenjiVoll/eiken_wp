@@ -2,219 +2,178 @@
 Theme Name: Eiken Design Store (WooCommerce)
 Theme URI: https://github.com/BenjiVoll/eiken_wp
 Author: Eiken Design
-Description: Tema oficial Motorsport & Diseño para Eiken Design con soporte nativo para WooCommerce y Webpay Plus.
-Version: 1.0.0
+Description: Tema oficial Motorsport & Diseño para Eiken Design con soporte completo para WooCommerce y Transbank Webpay Plus.
+Version: 2.0.0
 Text Domain: eiken-store
 */
 
-:root {
-  --eiken-black: #0a0a0c;
-  --eiken-dark: #111318;
-  --eiken-card: #181b22;
-  --eiken-border: #262a34;
-  --eiken-red: #ff2b00;
-  --eiken-orange: #ff3d00;
-  --eiken-silver: #c4c7ce;
-  --eiken-white: #ffffff;
-}
-
-* {
-  box-sizing: border-box;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background-color: #f8fafc;
+  margin: 0;
+  background-color: #020617;
+  color: #f8fafc;
+}
+
+/* Estilizado completo de Carrito y Checkout de WooCommerce sobre fondo claro/moderno */
+.eiken-wc-surface .woocommerce {
   color: #0f172a;
 }
 
-/* Header Motorsport Oscuro */
-.eiken-header {
-  background: rgba(10, 10, 12, 0.96);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #1e293b;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  padding: 14px 24px;
+.eiken-wc-surface .woocommerce-notices-wrapper .woocommerce-message,
+.eiken-wc-surface .woocommerce-notices-wrapper .woocommerce-info {
+  border-top-color: #ea580c !important;
+  background: #fff7ed !important;
+  color: #9a3412 !important;
+  border-radius: 14px;
+  padding: 16px 20px !important;
+  margin-bottom: 24px !important;
+  font-weight: 500;
 }
 
-.eiken-header-inner {
-  max-width: 1240px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+.eiken-wc-surface .woocommerce-notices-wrapper .woocommerce-error {
+  border-top-color: #dc2626 !important;
+  background: #fef2f2 !important;
+  color: #991b1b !important;
+  border-radius: 14px;
+  padding: 16px 20px !important;
+  margin-bottom: 24px !important;
 }
 
-.eiken-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: #fff;
-}
-
-.eiken-brand img {
-  height: 40px;
-  width: auto;
-  border-radius: 4px;
-}
-
-.eiken-brand-title {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
-}
-
-.eiken-brand-title span {
-  color: var(--eiken-orange);
-}
-
-.eiken-brand-sub {
-  font-size: 11px;
-  color: #94a3b8;
-  margin-top: 3px;
-}
-
-.eiken-nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.eiken-nav a {
-  color: #cbd5e1;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-
-.eiken-nav a:hover {
-  color: var(--eiken-orange);
-}
-
-.eiken-cart-btn {
-  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
-  color: #fff !important;
-  padding: 10px 18px;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(255, 61, 0, 0.25);
-}
-
-/* Hero Banner */
-.eiken-hero {
-  background: linear-gradient(135deg, #090d16 0%, #1e293b 50%, #090d16 100%);
-  color: #fff;
-  padding: 48px 24px;
-  text-align: center;
-  border-bottom: 1px solid #1e293b;
-}
-
-.eiken-hero-badge {
-  display: inline-block;
-  padding: 4px 14px;
-  border-radius: 999px;
-  background: rgba(255, 61, 0, 0.15);
-  border: 1px solid rgba(255, 61, 0, 0.35);
-  color: #fdba74;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 12px;
-}
-
-.eiken-hero h1 {
-  font-size: 36px;
-  font-weight: 900;
-  margin: 0 0 8px;
-}
-
-.eiken-hero h1 span {
-  background: linear-gradient(90deg, #fb923c, #ef4444);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.eiken-hero p {
-  color: #cbd5e1;
-  max-width: 640px;
-  margin: 0 auto;
-  font-size: 14px;
-}
-
-/* Contenedor principal */
-.eiken-container {
-  max-width: 1240px;
-  margin: 36px auto;
-  padding: 0 24px;
-}
-
-/* WooCommerce Overrides */
-.woocommerce ul.products li.product {
+.eiken-wc-surface .woocommerce table.shop_table {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  overflow: hidden;
   background: #ffffff;
-  border-radius: 16px;
-  padding: 14px !important;
-  border: 1px solid #e2e8f0;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
 }
 
-.woocommerce ul.products li.product:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
-  border-color: rgba(255, 61, 0, 0.3);
-}
-
-.woocommerce ul.products li.product a img {
-  border-radius: 12px;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.woocommerce ul.products li.product .woocommerce-loop-product__title {
-  font-size: 16px !important;
+.eiken-wc-surface .woocommerce table.shop_table th {
+  background: #f8fafc;
+  color: #475569;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   font-weight: 700;
-  color: #0f172a;
+  padding: 16px !important;
 }
 
-.woocommerce ul.products li.product .price {
-  color: #ea580c !important;
-  font-size: 18px !important;
-  font-weight: 800 !important;
+.eiken-wc-surface .woocommerce table.shop_table td {
+  padding: 16px !important;
+  vertical-align: middle !important;
+  border-top: 1px solid #f1f5f9 !important;
 }
 
-.woocommerce a.button,
-.woocommerce button.button.alt,
-.woocommerce input.button.alt,
-.woocommerce #respond input#submit.alt {
+.eiken-wc-surface .woocommerce table.shop_table img {
+  width: 64px !important;
+  height: 64px !important;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Inputs del Checkout de WooCommerce */
+.eiken-wc-surface .woocommerce form .form-row input.input-text,
+.eiken-wc-surface .woocommerce form .form-row textarea,
+.eiken-wc-surface .woocommerce form .form-row select {
+  width: 100%;
+  padding: 12px 14px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 12px !important;
+  background: #f8fafc !important;
+  font-size: 14px !important;
+  color: #0f172a !important;
+  transition: all 0.2s ease;
+}
+
+.eiken-wc-surface .woocommerce form .form-row input.input-text:focus,
+.eiken-wc-surface .woocommerce form .form-row textarea:focus,
+.eiken-wc-surface .woocommerce form .form-row select:focus {
+  outline: none !important;
+  border-color: #ea580c !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.15) !important;
+}
+
+.eiken-wc-surface .woocommerce form .form-row label {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #334155 !important;
+  margin-bottom: 6px !important;
+}
+
+/* Caja de pago Webpay Plus en Checkout */
+.eiken-wc-surface #add_payment_method #payment,
+.eiken-wc-surface .woocommerce-cart #payment,
+.eiken-wc-surface .woocommerce-checkout #payment {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 16px !important;
+  padding: 8px !important;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+.eiken-wc-surface #add_payment_method #payment div.payment_box,
+.eiken-wc-surface .woocommerce-cart #payment div.payment_box,
+.eiken-wc-surface .woocommerce-checkout #payment div.payment_box {
+  background-color: #fff7ed !important;
+  color: #9a3412 !important;
+  border: 1px solid #fed7aa !important;
+  border-radius: 12px !important;
+  font-size: 13px !important;
+}
+
+.eiken-wc-surface #add_payment_method #payment div.payment_box::before,
+.eiken-wc-surface .woocommerce-cart #payment div.payment_box::before,
+.eiken-wc-surface .woocommerce-checkout #payment div.payment_box::before {
+  border-bottom-color: #fed7aa !important;
+}
+
+/* Botones principales de WooCommerce */
+.eiken-wc-surface .woocommerce a.button.alt,
+.eiken-wc-surface .woocommerce button.button.alt,
+.eiken-wc-surface .woocommerce input.button.alt,
+.eiken-wc-surface .woocommerce #respond input#submit.alt,
+.eiken-wc-surface .woocommerce a.button,
+.eiken-wc-surface .woocommerce button.button {
   background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%) !important;
   color: #ffffff !important;
-  border-radius: 10px !important;
+  border-radius: 12px !important;
+  padding: 14px 24px !important;
   font-weight: 700 !important;
-  padding: 11px 18px !important;
+  font-size: 15px !important;
   border: none !important;
-  transition: opacity 0.2s ease !important;
+  box-shadow: 0 8px 20px rgba(234, 88, 12, 0.25) !important;
+  transition: all 0.2s ease !important;
 }
 
-.woocommerce a.button:hover,
-.woocommerce button.button.alt:hover {
-  opacity: 0.92;
+.eiken-wc-surface .woocommerce a.button.alt:hover,
+.eiken-wc-surface .woocommerce button.button.alt:hover,
+.eiken-wc-surface .woocommerce a.button:hover,
+.eiken-wc-surface .woocommerce button.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(234, 88, 12, 0.35) !important;
+  opacity: 0.96;
 }
 
-.eiken-footer {
-  background: #090d16;
-  color: #94a3b8;
-  text-align: center;
-  padding: 32px 24px;
-  margin-top: 64px;
-  font-size: 13px;
-  border-top: 1px solid #1e293b;
+.eiken-wc-surface .woocommerce .col2-set .col-1,
+.eiken-wc-surface .woocommerce-page .col2-set .col-1,
+.eiken-wc-surface .woocommerce .col2-set .col-2,
+.eiken-wc-surface .woocommerce-page .col2-set .col-2 {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  margin-bottom: 24px;
+}
+
+.eiken-wc-surface .woocommerce h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 16px;
 }
