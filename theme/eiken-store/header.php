@@ -66,7 +66,10 @@ $cart_count = (function_exists('WC') && WC()->cart) ? intval(WC()->cart->get_car
           <a href="<?php echo esc_url(home_url('/#contacto')); ?>" class="text-slate-300 hover:text-orange-500 font-medium text-sm transition-colors">
             Contacto
           </a>
-          <a href="<?php echo esc_url(admin_url()); ?>" class="text-xs font-semibold text-slate-400 hover:text-white bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg transition-colors">
+          <a href="<?php echo esc_url(home_url('/?eiken_quote_view=latest')); ?>" class="text-xs font-bold text-orange-400 hover:text-white bg-orange-500/10 hover:bg-orange-600 border border-orange-500/30 px-3 py-1.5 rounded-lg transition-colors">
+            📋 Ver Cotización Simulada
+          </a>
+          <a href="<?php echo esc_url(admin_url('edit.php?post_type=eiken_quote')); ?>" class="text-xs font-semibold text-slate-400 hover:text-white bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg transition-colors">
             ⚙️ WP-Admin
           </a>
         </nav>
